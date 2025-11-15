@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>PVZ Flash 试玩版</title>
 
-    <!-- RUFFLE desde CDN (no uses ruffle.js local) -->
+    <!-- Ruffle desde CDN -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
     <style>
@@ -17,21 +17,26 @@
             align-items: center;
             height: 100vh;
         }
+        #player {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
+
     <div id="player"></div>
 
     <script>
-        // Inicializar Ruffle
         const ruffle = window.RufflePlayer.newest();
         const player = ruffle.createPlayer();
         document.getElementById("player").appendChild(player);
 
-        // Cargar el juego SWF desde la carpeta correcta
+        // *** RUTA CORRECTA: carpeta arriba del index ***
         player.load("PVZ Flash试玩版/pvz_9_15.swf").catch(err => {
             console.error("ERROR cargando SWF:", err);
         });
     </script>
+
 </body>
 </html>
