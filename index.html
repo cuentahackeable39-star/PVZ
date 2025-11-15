@@ -1,46 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>PVZ Flash 试玩版</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PVZ Flash 试玩版</title>
 
-    <!-- Ruffle versión estable -->
-    <script src="https://unpkg.com/@ruffle-rs/ruffle@0.1.28"></script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle@0.1.28"></script>
 
-    <style>
-        body {
-            background: black;
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        #player {
-            width: 800px;   /* tamaño recomendado del juego */
-            height: 600px;
-        }
-    </style>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+    #player {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 </head>
 <body>
+<div id="player"></div>
+<script>
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    document.getElementById("player").appendChild(player);
 
-    <div id="player"></div>
-
-    <script>
-        // Inicializar Ruffle
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        document.getElementById("player").appendChild(player);
-
-        // Cargar el SWF desde la raíz
-        player.load("pvz_9_15.swf");
-
-        // Captura de errores
-        player.addEventListener("error", (e) => {
-            console.error("Error cargando SWF:", e);
-        });
-    </script>
-
+    // Ruta al SWF (en la raíz del repo)
+    player.load("pvz_9_15.swf").catch(e => console.error("Error cargando SWF:", e));
+</script>
 </body>
 </html>
