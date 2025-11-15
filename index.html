@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>PVZ Flash</title>
+    <title>PVZ Flash 试玩版</title>
 
+    <!-- Ruffle desde CDN -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
     <style>
@@ -31,10 +32,4 @@
         const player = ruffle.createPlayer();
         document.getElementById("player").appendChild(player);
 
-        player.load("pvz/pvz_9_15.swf").catch(err => {
-            console.error("ERROR cargando SWF:", err);
-        });
-    </script>
-
-</body>
-</html>
+        // CARGA EL SWF desde la carpeta pvz
