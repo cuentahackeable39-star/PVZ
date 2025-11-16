@@ -2,34 +2,30 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PVZ Flash 试玩版</title>
-
-<script src="https://unpkg.com/@ruffle-rs/ruffle@0.1.28"></script>
-
+<title>PVZ Flash</title>
+<script src="ruffle.js"></script>
 <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        background: black;
-    }
-    #player {
-        width: 100%;
-        height: 100%;
-    }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #000;
+  }
+  #container {
+    width: 550px; /* ancho del juego */
+    height: 400px; /* alto del juego */
+  }
 </style>
 </head>
 <body>
-<div id="player"></div>
+<div id="container"></div>
 <script>
-    const ruffle = window.RufflePlayer.newest();
-    const player = ruffle.createPlayer();
-    document.getElementById("player").appendChild(player);
-
-    // Ruta al SWF (en la raíz del repo)
-    player.load("pvz_9_15.swf").catch(e => console.error("Error cargando SWF:", e));
+  const ruffle = window.RufflePlayer.newest();
+  const player = ruffle.createPlayer();
+  document.getElementById("container").appendChild(player);
+  player.load("pvz_9_15.swf");
 </script>
 </body>
 </html>
