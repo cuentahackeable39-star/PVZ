@@ -5,23 +5,14 @@
 <title>PVZ Flash</title>
 <script src="ruffle.js"></script>
 <style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #000;
-  }
-  #container {
-    width: 550px; /* ancho del juego */
-    height: 400px; /* alto del juego */
-  }
+  body { margin:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#000; }
+  #container { width:550px; height:400px; }
 </style>
 </head>
 <body>
 <div id="container"></div>
 <script>
+  // Crear player Ruffle
   const ruffle = window.RufflePlayer.newest();
   const player = ruffle.createPlayer();
   document.getElementById("container").appendChild(player);
